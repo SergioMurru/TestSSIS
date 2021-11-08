@@ -23,6 +23,6 @@ cte16		as (select a.* from cte4		as a cross join cte4		),
 cte256		as (select a.* from cte16		as a cross join cte16		),
 cte65536	as (select a.* from cte256		as a cross join cte256		),
 cte1048576	as (select a.* from cte65536	as a cross join cte16		),
-cte16777216	as (select a.* from cte65536	as a cross join cte65536	)
-insert into Source(s) select s from cte1048576;
+cte16777216	as (select a.* from cte65536	as a cross join cte256	)
+insert into Source(s) select s from cte16777216;
 select count(*) from Source;
